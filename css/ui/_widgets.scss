@@ -1,0 +1,24 @@
+.widgets  {
+	margin: 0;
+	@include media-query(lap-and-up) { margin-bottom: 20px; }
+	padding-left: 24px;
+}
+
+.widgets .widget  {
+	color: #fff;
+	display: inline-block;
+	.home &.widget_sc_custom_widget:nth-child(1) { @include media-query(lap-and-up) { width: 280px; } }
+	.home &.widget_sc_custom_widget:nth-child(2) { @include media-query(lap-and-up) { margin-left: 21px; width: 229px; } }
+	.home &.widget_sc_custom_widget:nth-child(3) { @include media-query(lap-and-up) { margin-left: 21px; width: 381px; } }
+	a { 
+		color: #fff;
+		display: block; 
+		height: 100%; 
+		padding: 10px;
+		width: 100%; 
+		&:hover,
+		&:focus  {
+			text-decoration: none;
+		}
+	}
+}

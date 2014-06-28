@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    $MENU
+\*------------------------------------*/
+
+nav.menu-header-container  {
+	background-color: #363636;
+}
+
+header .menu-header-container  {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+	nav.menu-header-container a  {
+		color: #cccccc;
+		font-size: 0.875em;
+		padding: 0 1.25em;
+		&:hover,
+		&:focus  {
+			text-decoration: none;
+		}
+	}
+
+	nav.menu-header-container a:hover,
+	nav.menu-header-container a:focus  {
+		color: #fff;
+	}
+
+	nav.menu-header-container li  {
+		display: inline-block;
+		font-size: $base-font-size;
+		height: 2.5em;
+		line-height: 2.5em;
+	}
+
+	.current-menu-item a,
+	.current-post-ancestor a  {
+		color: #fff !important;
+	}
+	
+	.current-menu-item:before,
+	.current-post-ancestor:before  {
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		content: '';
+		position: relative;
+		width: 0; 
+		height: 0; 
+		left: 45%;
+		z-index: 10;
+	}
+
+	header .current-menu-item:before,
+	header .current-post-ancestor:before {
+		border-bottom: 5px solid inherit;
+		top: 6px;
+	}
+
+	footer .current-menu-item:before,
+	footer .current-post-ancestor:before  {
+		border-top: 5px solid inherit;
+		bottom: 6px;
+	}
+
+	ul.menu  {
+		font-size: 0;
+		margin: 0;
+	}
+
+	header ul.menu  {
+		margin-bottom: 34px;
+	}
+
+	.grid-wrapper + footer ul.menu  {
+		margin-top: 14px;
+	}

@@ -1,0 +1,4 @@
+[08-Jul-2013 00:32:00 UTC] PHP Fatal error:  Call to undefined function get_template_parts() in /home/shanehud/public_html/successcircuit.com/wp-content/themes/successcircuit/index.php on line 16
+[22-Jan-2014 10:25:56 UTC] PHP Fatal error:  Call to undefined function get_template_parts() in /home/shanehud/public_html/successcircuit.com/wp-content/themes/successcircuit/404.php on line 12
+[23-Jan-2014 09:50:40 UTC] PHP Fatal error:  Call to undefined function get_template_parts() in /home/shanehud/public_html/successcircuit.com/wp-content/themes/successcircuit/404.php on line 12
+[25-Jun-2014 20:28:07 UTC] PHP Fatal error:  Call to undefined function get_template_parts() in /mnt/home2/shanehud/public_html/successcircuit.com/wp-content/themes/successcircuit/index.php on line 16

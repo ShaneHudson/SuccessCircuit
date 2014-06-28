@@ -1,0 +1,35 @@
+
+@mixin background-colour($colour, $percentage) {
+	background-color: $colour;
+	&:hover,
+	&:focus  {
+		//background-color: lighten($colour, $percentage);
+	}
+}
+
+@function pxem($pxval, $base: $base-font-size)  {
+  // Function to take a pixel value and divide it by a base value in order to
+  // return the size in ems. Default base value is 16px
+  @return ($pxval / $base) * 1em;
+}
+
+@mixin menu-borders ($colour, $location) {
+	border-color: inherit;
+	@if $location == top {
+		border-style: solid;
+    	border-width: 4px 0;
+		height: 2.5em + pxem(8px);
+		margin-top: -(2.5em + pxem(4px));
+	}
+	@else {
+		border-style: solid;
+    	border-width: 4px 0 0 0;
+		height: 2.5em + pxem(4px);
+		margin-top: -(2.5em + pxem(4px));
+	}
+	content: '';
+	position: relative;
+	width: 100%;
+	display: block;
+	z-index: -1;
+}

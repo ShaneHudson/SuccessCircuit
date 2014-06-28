@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    $SETUP
+\*------------------------------------*/
+
+body  {
+	font-family: helvetica, sans-serif;
+	font-weight: 300;
+}
+
+.container  {
+	margin: 0 auto;
+	max-width: 1024px;
+}
+
+article p  {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.single h2  {
+	color: #fff;
+	font-size: $h3-size;
+	font-weight: 300;
+	line-height: 1;
+	padding: 12px;
+}

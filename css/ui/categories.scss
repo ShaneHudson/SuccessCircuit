@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    $CATEGORY-BOXES
+\*------------------------------------*/
+
+.content-grid__box,
+.widget,
+.single h2  {
+	background-color: #363636;
+	-webkit-transition: background-color 400ms linear;
+	   -moz-transition: background-color 400ms linear;
+	    -ms-transition: background-color 400ms linear;
+	     -o-transition: background-color 400ms linear;
+			transition: background-color 400ms linear;
+}
+
+/*------------------------------------*\
+    $CATEGORY-MENUS
+\*------------------------------------*/
+
+.menu-item  {
+	header &:after  {
+		@include menu-borders(inherit, top);
+	}
+
+	footer &:after  {
+		@include menu-borders(inherit, bottom);
+	}
+
+	border-color: #fff;
+	// Top arrow
+	header &:before  {
+		border-bottom-color: inherit;
+		border-bottom-width: 5px;
+		border-bottom-style: solid;
+	}
+
+	// Bottom arrow
+	footer &:before  {
+		border-top-color: inherit;
+		border-top-width: 5px;
+		border-top-style: solid;
+	}
+
+	a  {
+		display: inline-block;
+	}
+}

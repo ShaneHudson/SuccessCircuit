@@ -1,0 +1,33 @@
+.content-grid__box  {
+	display: block;
+	@include media-query(lap-and-up) { margin-bottom: 20px; }
+	&:hover,
+	&:active {
+		text-decoration: none;
+	}
+}
+
+
+	.content-grid__img  {
+		width: 100%;
+	}
+
+	.content-grid__title  {
+		color: #fff;
+		font-size: $gamma;
+		font-weight: 300;
+		line-height: 1;
+		margin-bottom: 5px;
+	}
+
+	.content-grid__content  {
+		color: #fff;
+		font-size: $zeta;
+		line-height: 1.5;
+		padding: 10px;
+	}
+
+	.content-grid__date  {
+		font-size: $milli-size;
+		text-align: right;
+	}
