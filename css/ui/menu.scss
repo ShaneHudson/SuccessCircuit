@@ -4,6 +4,7 @@
 
 nav.menu-header-container  {
 	background-color: #363636;
+	@extend .full-width;
 }
 
 header .menu-header-container  {
@@ -14,10 +15,14 @@ header .menu-header-container  {
 	nav.menu-header-container a  {
 		color: #cccccc;
 		font-size: 0.875em;
+		font-weight: 400;
 		padding: 0 1.25em;
 		&:hover,
 		&:focus  {
 			text-decoration: none;
+		}
+		&:first-child  {
+			padding-left: 0;
 		}
 	}
 
@@ -37,15 +42,16 @@ header .menu-header-container  {
 	.current-post-ancestor a  {
 		color: #fff !important;
 	}
-	
+
+/*
 	.current-menu-item:before,
 	.current-post-ancestor:before  {
 		border-left: 5px solid transparent;
 		border-right: 5px solid transparent;
 		content: '';
 		position: relative;
-		width: 0; 
-		height: 0; 
+		width: 0;
+		height: 0;
 		left: 45%;
 		z-index: 10;
 	}
@@ -61,15 +67,13 @@ header .menu-header-container  {
 		border-top: 5px solid inherit;
 		bottom: 6px;
 	}
+	*/
 
 	ul.menu  {
 		font-size: 0;
 		margin: 0;
 	}
 
-	header ul.menu  {
-		margin-bottom: 34px;
-	}
 
 	.grid-wrapper + footer ul.menu  {
 		margin-top: 14px;

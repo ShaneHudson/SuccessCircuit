@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]--> 
-<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]--> 
-<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]--> 
-<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]--> 
+<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 	<head>
 		<title><?php wp_title( '|' ); ?></title>
@@ -25,43 +25,43 @@
 
 		</script>
 		<?php wp_head(); ?>
-		
+
 
 		<!-- start infinite scroll function  -->
 
-		<?php if (!is_single() || !is_page()): ?>
+		<?php if (!is_single() && !is_page() && !is_home()):?>
 
 		<script type="text/javascript">
 		    jQuery(document).ready(function($) {
 		        var count = 2;
 		        var total = <?php echo $wp_query->max_num_pages; ?>;
 		        $(window).scroll(function(){
-		                if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-		                   if (count > total){
-		                   	  	return false;
-		                   }else{
-		                   		loadArticle(count);
-		                   }
-		                   count++;
-		                }
-		        }); 
+	            if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+	               if (count > total){
+	               	  	return false;
+	               }  else{
+	               		loadArticle(count);
+	               }
+	               count++;
+	            }
+		        });
 
-		        function loadArticle(pageNumber){    
-		                $('a#inifiniteLoader').show('fast');
-		                $.ajax({
-		                    url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
-		                    type:'POST',
-		                    data: "action=infinite_scroll&page_no="+ pageNumber + "&loop_file=loop<?php if($cat != '') echo "&cat=" . $cat; ?>", 
-		                    success: function(html){
-		                        $('a#inifiniteLoader').hide('1000');
-		                        $(".grid-wrapper").append(html);    // This will be the div where our content will be loaded
+		        function loadArticle(pageNumber){
+              $('a#inifiniteLoader').show('fast');
+              $.ajax({
+                  url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+                  type:'POST',
+                  data: "action=infinite_scroll&post_status=publish&page_no=" + pageNumber + "&loop_file=loop<?php if(isset($cat)) echo "&cat=" . $cat; ?>",
+                  success: function(html){
+                    $('a#inifiniteLoader').hide('1000');
+                    $(".grid-wrapper").append(html);    // This will be the div where our content will be loaded
 
-								content_grid();
-								setBgColour();
-								setBorderColour();
-		                    }
-		                });
-		            return false;
+										//content_grid();
+										//setBgColour();
+										//setBorderColour();
+                  }
+              });
+	            return false;
 		        }
 		    });
 		</script>

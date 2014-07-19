@@ -1,11 +1,54 @@
 /*------------------------------------*\
+		$SECTIONS
+\*------------------------------------*/
+.single section  {
+	@extend .full-width;
+	background-color: $primary-color;
+}
+
+.recent, .featured {
+	@extend .full-width;
+
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	border-bottom: 6px solid $tertiary-color;
+}
+
+.recent  {
+	background-color: $primary-color;
+}
+
+.featured  {
+	background-color: $secondary-color;
+}
+
+.recent h1, .featured h1 {
+	color: #fff;
+	font-size: 28px;
+	font-weight: 400;
+	padding-left: 0px;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+@include media-query(lap-and-up) {
+	.recent h1, .featured h1  {
+		padding: 0;
+		margin-bottom: 5px;
+	}
+}
+
+
+
+/*------------------------------------*\
     $CATEGORY-BOXES
 \*------------------------------------*/
 
 .content-grid__box,
 .widget,
 .single h2  {
-	background-color: #363636;
+	background-color: rgba(#363636,0.2);
 	-webkit-transition: background-color 400ms linear;
 	   -moz-transition: background-color 400ms linear;
 	    -ms-transition: background-color 400ms linear;

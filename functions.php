@@ -68,9 +68,11 @@
 			<a href="<?php esc_url( the_permalink() ); ?>" data-colour="<?php echo $cat_colour; ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark" class="content-grid__box custom-bg">
 				<?php if (has_post_thumbnail($post_id)) {
 					$image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "Full");
-					$image_url = $image_url[0]; ?>
-					<img src="<?php echo $image_url; ?>" class="content-grid__img" />
-				<?php } ?>
+					$image_url = $image_url[0];
+					if ($image_url != '')  { ?>
+						<img src="<?php echo $image_url; ?>" class="content-grid__img" />
+					<?php }
+					} ?>
 				<article class="content-grid__content">
 					<h2 class="content-grid__title"><?php the_title(); ?></h2>
 					<?php the_excerpt(); ?>
@@ -84,13 +86,14 @@
 	/*infinite scroll pagination */
 
 	add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
-	//add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
+	add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
 
 	function wp_infinitepaginate(){
 	    $loopFile        = $_POST['loop_file'];
 	    $paged           = $_POST['page_no'];
 	    $posts_per_page  = get_option('posts_per_page');
 	    $cat = $_POST['cat'];
+			print $cat;
 	    if (isset($cat))
 	    	query_posts(array('paged' => $paged, 'cat' => $cat ));
 	    else
@@ -108,6 +111,14 @@
 	add_action( 'wp_enqueue_scripts', 'script_enqueuer' );
 
 	add_filter( 'body_class', 'add_slug_to_body_class' );
+
+	//filter the <p> tags from the images and iFrame
+function filter_ptags_on_images($content)
+{
+$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
 
 	/* ========================================================================================================================
 
@@ -128,8 +139,8 @@
 	function modify_jquery() {
 		if (!is_admin()) {
 			// comment out the next two lines to load the local copy of jQuery
-			wp_deregister_script('jquery');
-			wp_register_script('jquery', 'http://code.jquery.com/jquery-latest.min.js', false, '1.8.1');
+			//wp_deregister_script('jquery');
+			//wp_register_script('jquery', 'http://code.jquery.com/jquery-latest.min.js', false, '1.8.1');
 			wp_enqueue_script('jquery');
 		}
 	}
@@ -173,7 +184,7 @@
 		<?php if ( $comment->comment_approved == '1' ): ?>
 		<li>
 			<article id="comment-<?php comment_ID() ?>">
-				<?php echo get_avatar( $comment ); ?>
+				<?php // echo get_avatar( $comment ); ?>
 				<h4><?php comment_author_link() ?></h4>
 				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
 				<?php comment_text() ?>

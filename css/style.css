@@ -3,9 +3,9 @@
     YOUR-PROJECT.CSS
 \*------------------------------------*/
 /**
- * 
+ *
  * sass --watch your-project.scss:your-project.min.css --style compressed
- * 
+ *
  * Here we set up some variables, include the inuit.css framework, then add our
  * project-specific components afterwards.
  */
@@ -56,50 +56,50 @@
     INUIT.CSS
 \*------------------------------------*/
 /**
- * 
+ *
  * inuitcss.com -- @inuitcss -- @csswizardry
- * 
+ *
  */
 /**
  * inuit.css acts as a base stylesheet which you should extend with your own
  * theme stylesheet.
- * 
+ *
  * inuit.css aims to do the heavy lifting; sorting objects and abstractions,
  * design patterns and fiddly bits of CSS, whilst leaving as much design as
  * possible to you. inuit.css is the scaffolding to your decorator.
- * 
+ *
  * This stylesheet is heavily documented and contains lots of comments, please
  * take care to read and refer to them as you build. For further support please
  * tweet at @inuitcss.
- * 
+ *
  * Owing to the amount of comments please only ever use minified CSS in
  * production. This file is purely a dev document.
- * 
+ *
  * The table of contents below maps to section titles of the same name, to jump
  * to any section simply run a find for $[SECTION-TITLE].
- * 
+ *
  * Most objects and abstractions come with a chunk of markup that you should be
  * able to paste into any view to quickly see how the CSS works in conjunction
  * with the correct HTML.
- * 
+ *
  * inuit.css is written to this standard: github.com/csswizardry/CSS-Guidelines
- * 
+ *
  * LICENSE
- * 
+ *
  * Copyright 2012 Harry Roberts
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * Thank you for choosing inuit.css. May your floats remain cleared.
  */
 /*------------------------------------*\
@@ -109,13 +109,13 @@
  * CONTENTS............You’re reading it!
  * WARNING.............Here be dragons!
  * IMPORTS.............Begin importing the sections below
- * 
+ *
  * MIXINS..............Super-simple Sass stuff
  * NORMALIZE...........normalize.css
  * RESET...............Set some defaults
  * CLEARFIX............
  * SHARED..............Shared declarations
- * 
+ *
  * MAIN................High-level elements like `html`, `body`, etc.
  * HEADINGS............Double-stranded heading hierarchy
  * PARAGRAPHS..........
@@ -127,7 +127,7 @@
  * IMAGES..............
  * TABLES..............
  * FORMS...............
- * 
+ *
  * GRIDS...............Fluid, proportional and nestable grids
  * FLEXBOX.............Crudely emulate flexbox
  * COLUMNS.............CSS3 columns
@@ -152,7 +152,7 @@
  * RULES...............Horizontal rules
  * STATS...............Simple stats object
  * GREYBOX.............Wireframing styles
- * 
+ *
  * WIDTHS..............Width classes for use alongside the grid system etc.
  * PUSH................Push classes for manipulating grids
  * PULL................Pull classes for manipulating grids
@@ -169,9 +169,9 @@
  * inuit.css to style everything we need for a base. Any custom styles SHOULD
  * NOT be added or modified in inuit.css directly, but added via your theme
  * stylesheet as per the open/closed principle:
- * 
+ *
  * csswizardry.com/2012/06/the-open-closed-principle-applied-to-css
- * 
+ *
  * Try not to edit any CSS beyond this point; if you find you need to do so
  * it is a failing of the framework so please tweet at @inuitcss.
  */
@@ -187,46 +187,46 @@
 /**
  * Create a fully formed type style (sizing and vertical rhythm) by passing in a
  * single value, e.g.:
- * 
+ *
    `@include font-size(10px);`
- * 
+ *
  * Thanks to @redclov3r for the `line-height` Sass:
  * twitter.com/redclov3r/status/250301539321798657
  */
 /**
  * Create vendor-prefixed CSS in one go, e.g.
- * 
+ *
    `@include vendor(border-radius, 4px);`
- * 
+ *
  */
 /**
  * Create CSS keyframe animations for all vendors in one go, e.g.:
- * 
+ *
    .foo{
        @include vendor(animation, shrink 3s);
    }
-   
+
    @include keyframe(shrink){
        from{
            font-size:5em;
        }
    }
- * 
+ *
  * Courtesy of @integralist: twitter.com/integralist/status/260484115315437569
  */
 /**
  * Force overly long spans of text to truncate, e.g.:
- * 
+ *
    `@include truncate(100%);`
- * 
+ *
  * Where `$truncation-boundary` is a united measurement.
  */
 /**
  * CSS arrows!!! But... before you read on, you might want to grab a coffee...
- * 
+ *
  * This mixin creates a CSS arrow on a given element. We can have the arrow
  * appear in one of 12 locations, thus:
- * 
+ *
  *       01    02    03
  *    +------------------+
  * 12 |                  | 04
@@ -236,25 +236,25 @@
  * 10 |                  | 06
  *    +------------------+
  *       09    08    07
- * 
+ *
  * You pass this position in along with a desired arrow color and optional
  * border color, for example:
- * 
+ *
  * `@include arrow(top, left, red)`
- * 
+ *
  * for just a single, red arrow, or:
- * 
+ *
  * `@include arrow(bottom, center, red, black)`
- * 
+ *
  * which will create a red triangle with a black border which sits at the bottom
- * center of the element. Call the mixin thus: 
- * 
+ * center of the element. Call the mixin thus:
+ *
    .foo{
        background-color:#BADA55;
        border:1px solid #ACE;
        @include arrow(top, left, #BADA55, #ACE);
    }
- * 
+ *
  */
 /**
  * Media query mixin.
@@ -265,7 +265,7 @@
  * approach to design decisions, this is the closest we can get to baked-in
  * responsiveness. It’s flexible enough to allow you to set your own breakpoints
  * but solid enough to be frameworkified.
- * 
+ *
  * We define some broad breakpoints in our vars file that are picked up here
  * for use in a simple media query mixin. Our options are:
  *
@@ -274,11 +274,11 @@
  * lap-and-up
  * portable
  * desk
- * 
+ *
  * Not using a media query will, naturally, serve styles to all devices.
- * 
+ *
  * `@include media-query(palm){ [styles here] }`
- * 
+ *
  * We work out your end points for you:
  */
 /* normalize.css v2.0.1 | MIT License | git.io/normalize */
@@ -634,7 +634,7 @@ table {
     $RESET
 \*------------------------------------*/
 /**
- * A more considered reset; more of a restart... 
+ * A more considered reset; more of a restart...
  * As per: csswizardry.com/2011/10/reset-restarted
  */
 /**
@@ -816,7 +816,7 @@ html {
 \*------------------------------------*/
 /**
  * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
- * 
+ *
  * When we define a heading we also define a corresponding class to go with it.
  * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
  * heading hierarchy.
@@ -860,12 +860,12 @@ h6, .zeta {
 /**
  * Heading groups and generic any-heading class.
  * To target any heading of any level simply apply a class of `.hN`, e.g.:
- * 
+ *
    <hgroup>
        <h1 class=hN>inuit.css</h1>
        <h2 class=hN>Best. Framework. Ever!</h2>
    </hgroup>
- * 
+ *
  */
 hgroup .hN {
   margin-bottom: 0;
@@ -976,13 +976,13 @@ blockquote p:last-of-type:after {
 }
 
 /**
- * 
+ *
    <blockquote>
        <p>Insanity: doing the same thing over and over again and expecting
        different results.</p>
        <b class=source>Albert Einstein</b>
    </blockquote>
- * 
+ *
  */
 blockquote {
   /**
@@ -1020,9 +1020,9 @@ pre mark {
 
 /**
  * Add comments to your code examples, e.g.:
- * 
+ *
    <code>&lt;/div&gt;<span class=code-comment>&lt;!-- /wrapper --&gt;</span></code>
- * 
+ *
  */
 .code-comment {
   /**
@@ -1035,7 +1035,7 @@ pre mark {
 /**
  * You can add line numbers to your code examples but be warned, it requires
  * some pretty funky looking markup, e.g.:
- * 
+ *
    <ol class=line-numbers>
        <li><code>.nav{</code></li>
        <li><code>    list-style:none;</code></li>
@@ -1048,7 +1048,7 @@ pre mark {
        <li><code>            zoom:1;</code></li>
        <li><code>        }</code></li>
    </ol>
- * 
+ *
  * 1. Make the list look like code.
  * 2. Give the list flush numbers with a leading zero.
  * 3. Make sure lines of code don’t wrap.
@@ -1091,14 +1091,14 @@ a:hover, a:active, a:focus {
 
 /**
  * ‘Current’ states, e.g.:
- * 
+ *
    <ul class=nav>
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li class=current><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  */
 .current a {
   cursor: text;
@@ -1140,7 +1140,7 @@ img {
 
 /**
  * Keep your images on your baseline.
- * 
+ *
  * Please note, these will not work too nicely with fluid images and will
  * distort when resized below a certain width. Use with caution.
  */
@@ -1431,9 +1431,9 @@ td {
     $FORMS
 \*------------------------------------*/
 /**
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/MhHHU
- * 
+ *
  */
 fieldset {
   padding: 24px;
@@ -1441,13 +1441,13 @@ fieldset {
 
 /**
  * Text inputs
- * 
+ *
  * Instead of a `[type]` selector for each kind of form input, we just use a
  * class to target any/every one, e.g.:
    <input type=text class=text-input>
    <input type=email class=text-input>
    <input type=password class=text-input>
- * 
+ *
  */
 .text-input,
 textarea {
@@ -1458,7 +1458,7 @@ textarea {
 
 /**
  * Group sets of form fields in a list, e.g.:
- * 
+ *
    <ul class=form-fields>
        <li>
            <label />
@@ -1473,7 +1473,7 @@ textarea {
            <input />
        </li>
    </ul>
- * 
+ *
  */
 .form-fields {
   list-style: none;
@@ -1486,11 +1486,11 @@ textarea {
 
 /**
  * Labels
- * 
+ *
  * Define a `.label` class as well as a `label` element. This means we can apply
  * label-like styling to meta-labels for groups of options where a `label`
  * element is not suitable, e.g.:
- * 
+ *
    <li>
        <span class=label>Select an option below:</span>
        <ul class="multi-list  four-cols">
@@ -1508,7 +1508,7 @@ textarea {
            </li>
        </ul>
    </li>
- * 
+ *
  */
 label,
 .label {
@@ -1517,9 +1517,9 @@ label,
 
 /**
  * Extra help text in `label`s, e.g.:
- * 
+ *
    <label>Card number <small class=additional>No spaces</small></label>
- * 
+ *
  */
 .additional {
   display: block;
@@ -1528,7 +1528,7 @@ label,
 
 /*
  * Groups of checkboxes and radios, e.g.:
- * 
+ *
    <li>
        <ul class=check-list>
            <li>
@@ -1539,7 +1539,7 @@ label,
            </li>
        </ul>
    </li>
- * 
+ *
  */
 .check-list {
   list-style: none;
@@ -1557,7 +1557,7 @@ label,
 
 /**
  * Spoken forms are for forms that read like spoken word, e.g.:
- * 
+ *
    <li class=spoken-form>
        Hello, my <label for=spoken-name>name</label> is
        <input type=text class=text-input id=spoken-name>. My home
@@ -1568,7 +1568,7 @@ label,
            <option>Other</option>
        </select>
    </li>
- * 
+ *
  */
 .spoken-form label {
   display: inline-block;
@@ -1577,15 +1577,15 @@ label,
 
 /**
  * Extra help text displayed after a field when that field is in focus, e.g.:
- * 
+ *
    <label for=email>Email:</label>
-   <input type=email class=text-input id=email> 
+   <input type=email class=text-input id=email>
    <small class=extra-help>.edu emails only</small>
- * 
+ *
  * We leave the help text in the document flow and merely set it to
  * `visibility:hidden;`. This means that it won’t interfere with anything once
  * it reappears.
- * 
+ *
  */
 /*small*/
 .extra-help {
@@ -1600,7 +1600,7 @@ label,
 
 /**
  * Objects and abstractions
- * 
+ *
  * Single-line comment (//) out any objects you do not need in your project.
  */
 /*------------------------------------*\
@@ -1608,43 +1608,43 @@ label,
 \*------------------------------------*/
 /**
  * Fluid and nestable grid system, e.g.:
- * 
+ *
    <div class=gw>
-       
+
        <div class="g  one-third">
            <p>One third grid</p>
        </div>
-       
+
        <div class="g  two-thirds">
            <p>Two thirds grid</p>
        </div>
-       
+
        <div class="g  one-half">
            <p>One half grid</p>
        </div>
-       
+
        <div class="g  one-quarter">
            <p>One quarter grid</p>
        </div>
-       
+
        <div class="g  one-quarter">
            <p>One quarter grid</p>
        </div>
-       
+
    </div>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/CLYUC
- * 
+ *
  */
 /**
  * Grid wrapper
- * 
+ *
  * Shorthand and verbose
  */
 .gw,
 .grid-wrapper {
   /**
-   * Negative margin to negate the padding on the first grid child. 
+   * Negative margin to negate the padding on the first grid child.
    */
   margin-left: -24px;
   /**
@@ -1656,19 +1656,19 @@ label,
 
 /**
  * Reverse grid order
- * 
+ *
    <div class="gw  gw--rev">
-       
+
        <div class="g  one-third">
            <p>Appears on the right</p>
        </div>
-       
+
        <div class="g  two-thirds">
            <p>Appears on the left</p>
        </div>
-       
+
    </div>
- * 
+ *
  */
 .gw--rev .g,
 .grid-wrapper--rev .grid {
@@ -1685,7 +1685,7 @@ label,
 
 /**
  * Grid
- * 
+ *
  * Shorthand and verbose
  */
 .g,
@@ -1700,33 +1700,33 @@ label,
 /**
  * Until we can utilise flexbox natively we can kinda, sorta, attempt to emulate
  * it, in a way... e.g.:
- * 
+ *
    <header class=flexbox>
-       
+
        <div class=flexbox__item>
            <b>Welcome to</b>
        </div>
-       
+
        <div class=flexbox__item>
            <img src="//csswizardry.com/inuitcss/img/logo.jpg" alt="inuit.css">
        </div>
-   
+
    </header>
- * 
+ *
  * We can also combine our grid system classes with `.flexbox__item` classes,
  * e.g.:
- * 
+ *
    <div class=flexbox>
        <div class="flexbox__item  one-quarter">
        </div>
        <div class="flexbox__item  three-quarters">
        </div>
    </div>
- * 
+ *
  * It’s pretty poorly named I’m afraid, but it works…
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/ufUh2
- * 
+ *
  */
 .flexbox {
   display: table;
@@ -1751,11 +1751,11 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Here we can set elements in columns of text using CSS3, e.g.:
- * 
+ *
    <p class=text-cols--2>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/E26Yd
- * 
+ *
  */
 .text-cols--2, .text-cols--3, .text-cols--4, .text-cols--5 {
   -webkit-column-gap: 24px;
@@ -1804,16 +1804,16 @@ html.flexbox {
  * Nav abstraction as per: csswizardry.com/2011/09/the-nav-abstraction
  * When used on an `ol` or `ul`, this class throws the list into horizontal mode
  * e.g.:
- * 
+ *
    <ul class=nav>
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/Vnph4
- * 
+ *
  */
 .nav {
   list-style: none;
@@ -1828,14 +1828,14 @@ html.flexbox {
 
 /**
  * `.nav--stacked` extends `.nav` and throws the list into vertical mode, e.g.:
- * 
+ *
    <ul class="nav  nav--stacked">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  */
 .nav--stacked > li {
   display: list-item;
@@ -1846,14 +1846,14 @@ html.flexbox {
 
 /**
  * `.nav--banner` extends `.nav` and centres the list, e.g.:
- * 
+ *
    <ul class="nav  nav--banner">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  */
 .nav--banner {
   text-align: center;
@@ -1862,14 +1862,14 @@ html.flexbox {
 /**
  * Give nav links a big, blocky hit area. Extends `.nav` and needs whitespace
  * caused by `inline-block` elements collapsing e.g.:
- * 
+ *
    <ul class="nav  nav--block">
        <li><a href=#>Home</a></li><!--
     --><li><a href=#>About</a></li><!--
     --><li><a href=#>Portfolio</a></li><!--
     --><li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  */
 .nav--block, .options {
   line-height: 1;
@@ -1881,14 +1881,14 @@ html.flexbox {
 /**
  * Force a nav to occupy 100% of the available width of its parent. Extends
  * `.nav`, e.g.:
- * 
+ *
    <ul class="nav  nav--fit">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  * Thanks to @pimpl for this idea!
  */
 .nav--fit {
@@ -1904,9 +1904,9 @@ html.flexbox {
 
 /**
  * Make a list of keywords. Extends `.nav`, e.g.:
- * 
+ *
    `<ul class="nav  nav--keywords>`
- * 
+ *
  */
 .nav--keywords > li:after {
   content: ", ";
@@ -1922,16 +1922,16 @@ html.flexbox {
  * Link-group nav, used for displaying related options. Extends `.nav--block`
  * but could also extend `.nav--fit`. Extend with colours and ‘current states’
  * in your theme stylesheet.
- * 
+ *
   <ul class="nav  options">
-      <li><a></a></li><!-- 
-   --><li><a></a></li><!-- 
-   --><li><a></a></li><!-- 
-   --><li><a></a></li> 
+      <li><a></a></li><!--
+   --><li><a></a></li><!--
+   --><li><a></a></li><!--
+   --><li><a></a></li>
    </ul>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/vwfaf
- * 
+ *
  */
 .options > li > a {
   border: 0 solid #ccc;
@@ -1954,7 +1954,7 @@ html.flexbox {
  * Basic pagination object, extends `.nav`.
  * Requires some funky commenting to collapse any white-space caused by the
  * `display:inline-block;` rules.
- * 
+ *
    <ol class="nav  pagination">
        <li class=pagination__first>First</li><!--
     --><li class=pagination__prev>Previous</li><!--
@@ -1966,9 +1966,9 @@ html.flexbox {
     --><li class=pagination__next><a href=/page/next>Next</a></li><!--
     --><li class=pagination__last><a href=/page/last>Last</a></li>
    </ol>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/9Y6PU
- * 
+ *
  */
 .pagination {
   text-align: center;
@@ -1996,16 +1996,16 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Simple breadcrumb styling to apply to (ordered) lists. Extends `.nav`, e.g.:
- * 
+ *
    <ol class="nav  breadcrumb">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>The Board</a></li>
        <li class=current><a href=#>Directors</a></li>
    </ol>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/rkAY9
- * 
+ *
  */
 .breadcrumb > li + li:before {
   content: "» ";
@@ -2013,14 +2013,14 @@ html.flexbox {
 
 /**
  * For denoting a path-like structure, GitHub style, e.g.:
- * 
+ *
    <ol class="nav  breadcrumb--path">
        <li class=breadcrumb__root><a href=#>inuit.css</a></li>
        <li><a href=#>inuit.css</a></li>
        <li><a href=#>partials</a></li>
        <li class=current><a href=#>objects</a></li>
    </ol>
- * 
+ *
  */
 .breadcrumb--path > li + li:before {
   content: "/ ";
@@ -2028,14 +2028,14 @@ html.flexbox {
 
 /**
  * Assign a delimiter on the fly through a data attribute, e.g.:
- * 
+ *
    <ol class="nav  breadcrumb">
        <li><a href=#>Home</a></li>
        <li data-breadcrumb="|"><a href=#>About</a></li>
        <li data-breadcrumb="|"><a href=#>The Board</a></li>
        <li data-breadcrumb="|" class=current><a href=#>Directors</a></li>
    </ol>
- * 
+ *
  */
 .breadcrumb > li + li[data-breadcrumb]:before {
   content: attr(data-breadcrumb) " ";
@@ -2055,15 +2055,15 @@ html.flexbox {
  * Place any image- and text-like content side-by-side, as per:
  * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
  * E.g.:
- * 
+ *
    <div class=media>
        <img src=http://placekitten.com/200/300 alt="" class=media__img>
        <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
    </div>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/cf4Qs
- * 
+ *
  */
 .media {
   display: block;
@@ -2163,13 +2163,13 @@ html.flexbox {
 /**
  * Simple, boxed off content, as per: csswizardry.com/2011/10/the-island-object
  * E.g.:
- * 
+ *
    <div class=island>
        I am boxed off.
    </div>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/u8pV3
- * 
+ *
  */
 .island,
 .islet {
@@ -2197,18 +2197,18 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Create big blocky lists of content, e.g.:
- * 
+ *
    <ul class=block-list>
       <li>Foo</li>
       <li>Bar</li>
       <li>Baz</li>
       <li><a href=# class=block-list__link>Foo Bar Baz</a></li>
    </ul>
- * 
+ *
  * Extend this object in your theme stylesheet.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/hR57q
- * 
+ *
  */
 .block-list,
 .block-list > li {
@@ -2237,7 +2237,7 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Create a grid of items out of a single list, e.g.:
- * 
+ *
    <ul class="matrix  three-cols">
        <li class=all-cols>Lorem</li>
        <li>Ipsum <a href=#>dolor</a></li>
@@ -2245,11 +2245,11 @@ html.flexbox {
        <li>Amet</li>
        <li class=all-cols>Consectetuer</li>
    </ul>
- * 
+ *
  * Extend this object in your theme stylesheet.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/Y2zrU
- * 
+ *
  */
 .matrix,
 .matrix > li {
@@ -2279,16 +2279,16 @@ html.flexbox {
 /**
  * The `.multi-list` object is a lot like the `.matrix` object only without the
  * blocky borders and padding.
- * 
+ *
    <ul class="multi-list  four-cols">
        <li>Lorem</li>
        <li>Ipsum</li>
        <li>Dolor</li>
        <li>Sit</li>
    </ul>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/Y2zrU
- * 
+ *
  */
 .multi-list {
   list-style: none;
@@ -2334,24 +2334,24 @@ html.flexbox {
 /**
  * Simple split item for creating two elements floated away from one another,
  * e.g.:
- * 
-   <dl class=split>       
+ *
+   <dl class=split>
        <dt class=split__title>Burger and fries</dt>
-       <dd>&pound;5.99</dd>       
+       <dd>&pound;5.99</dd>
        <dt class=split__title>Fillet steak</dt>
-       <dd>&pound;19.99</dd>       
+       <dd>&pound;19.99</dd>
        <dt class=split__title>Ice cream</dt>
-       <dd>&pound;2.99</dd>       
+       <dd>&pound;2.99</dd>
    </dl>
- * 
+ *
    <ol class="split  results">
-       <li class=first><b class=split__title>1st place</b> Bob</li>       
-       <li class=second><b class=split__title>2nd place</b> Lilly</li>       
-       <li class=third><b class=split__title>3rd place</b> Ted</li>       
+       <li class=first><b class=split__title>1st place</b> Bob</li>
+       <li class=second><b class=split__title>2nd place</b> Lilly</li>
+       <li class=third><b class=split__title>3rd place</b> Ted</li>
    </ol>​
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/9gZW7
- * 
+ *
  */
 .split {
   text-align: right;
@@ -2370,7 +2370,7 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Simple options object to provide multiple choices, e.g.:
- * 
+ *
    <h1 class=this-or-this>
        <a href=# class="this-or-this__this  two-fifths">
            Free
@@ -2382,12 +2382,12 @@ html.flexbox {
            Pro
        </a>
    </h1>
- * 
+ *
  * The `.this-or-this__this` and `.this-or-this__or` objects can be sized using
  * the grid-system classes.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/R3sks
- * 
+ *
  */
 .this-or-this {
   display: table;
@@ -2407,16 +2407,16 @@ html.flexbox {
 /**
  * As inspired by @necolas:
  * github.com/necolas/suit-utils/blob/master/link.css#L18
- * 
+ *
  * Add hover behaviour to only selected items within links, e.g.:
- * 
+ *
    <a href=log-in class=link-complex>
        <i class="s  s--user"></i>
        <span class=link-complex__target>Log in</span>
    </a>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/rt9M3
- * 
+ *
  */
 .link-complex,
 .link-complex:hover,
@@ -2437,7 +2437,7 @@ html.flexbox {
 /**
  * Flyouts are pieces of content that fly out of a parent when said parent is
  * hovered. They typically appear bottom-left of the parent.
- * 
+ *
    <div class=flyout>
        Foo
        <div class=flyout__content>
@@ -2445,11 +2445,11 @@ html.flexbox {
            <p>Ipsum</p>
        </div>
    </div>
- * 
+ *
  * Extend these objects in your theme stylesheet.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/B52HG
- * 
+ *
  */
 .flyout,
 .flyout--alt {
@@ -2512,29 +2512,29 @@ html.flexbox {
 /**
  * Giving an element a class of `.s` will throw it into ‘sprite’ mode and apply
  * a background image e.g.:
- * 
+ *
    <a class="s  s--question-mark">More info&hellip;</a>
- * 
+ *
  * or
- * 
+ *
    <a href=#><i class="s  s--question-mark"></i> Help and FAQ</a>
- * 
+ *
  * Giving an element a class of `.i` will throw it into ‘icon’ mode and will
  * not add a background, but should be used for icon fonts and is populated
  * through a `data-char` attribute and the `:after` pseudo-element, e.g.:
- * 
+ *
    <a href=# class=i data-char="C">Add to favorites</a>
- * 
+ *
  * or
- * 
+ *
    <a href=#><i class=i data-char="C"></i> View your favourites</a>
- * 
+ *
  * Where ‘C’ might map to a star in your particular font.
- * 
+ *
  * These all require extension in your theme stylesheet.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/6TKuS
- * 
+ *
  */
 .s,
 .i {
@@ -2587,18 +2587,18 @@ html.flexbox {
 /**
  * For text-links etc that have an icon with them. Sometimes whitespace would
  * suffice in creating a gap between the icon and text, for example:
- * 
+ *
    <a href=#>
        <i class="s  s--help"></i> Help &amp; support
    </a>
- * 
+ *
  * However we will sometimes want a larger, explicity set gap:
    <a href=# class=icon-text>
        <i class="icon-text__icon  s  s--help"></i>Help &amp; support
    </a>
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/Q6Lbf
- * 
+ *
  */
 .icon-text > .icon-text__icon {
   margin-right: 8px;
@@ -2622,9 +2622,9 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Basic button structural styling. Extend in your theme stylesheet.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/RqHcp
- * 
+ *
  */
 .btn {
   font: inherit;
@@ -2673,15 +2673,15 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Create pill- and lozenge-like runs of text, e.g.:
- * 
+ *
    <p>This <span class=pill>here</span> is a pill!</p>
- * 
+ *
    <p>This <span class=loz>here</span> is also a lozenge!</p>
- * 
+ *
  * Pills have fully rounded ends, lozenges have only their corners rounded.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/N3pGm
- * 
+ *
  */
 .pill, .loz {
   display: inline-block;
@@ -2716,9 +2716,9 @@ html.flexbox {
 \*------------------------------------*/
 /**
  * Horizontal rules, extend `hr`.
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/L6GuZ
- * 
+ *
  */
 .rule {
   color: #ccc;
@@ -2751,9 +2751,9 @@ html.flexbox {
   position: relative;
   /**
   * Pass in an arbitrary ornament though a data attribute, e.g.:
-  * 
+  *
     <hr class="rule  rule--ornament" data-ornament="!">
-  * 
+  *
   */
 }
 .rule--ornament:after {
@@ -2773,19 +2773,19 @@ html.flexbox {
     $STATS
 \*------------------------------------*/
 /**
- * Simple object to display key–value statistic-like information, e.g.: 
+ * Simple object to display key–value statistic-like information, e.g.:
  *
    <div class=stat-group>
        <dl class=stat>
            <dt class=stat__title>Tweets</dt>
            <dd class=stat__value>27,740</dd>
        </dl>
-       
+
        <dl class=stat>
            <dt class=stat__title>Following</dt>
            <dd class=stat__value>11,529</dd>
        </dl>
-       
+
        <dl class=stat>
            <dt class=stat__title>Followers</dt>
            <dd class=stat__value>12,105</dd>
@@ -2838,24 +2838,24 @@ html.flexbox {
 /**
  * Quickly throw together greybox wireframes. Use in conjunction with other
  * inuit.css objects to create simple greybox prototypes, e.g.:
- * 
+ *
    <div class="island  greybox  greybox--medium">Header</div>
-   
+
    <ul class="nav  nav--fit  nav--block  greybox">
        <li><a href=#>Home</a></li>
        <li><a href=#>About</a></li>
        <li><a href=#>Portfolio</a></li>
        <li><a href=#>Contact</a></li>
    </ul>
- * 
+ *
  * The beauty of combining the greyboxing with inuit.css objects is that any
  * prototyping can quickly be converted into/used as production code.
- * 
+ *
  * For a more complete prototyping framework, consider Adam Whitcroft’s Proto:
  * adamwhitcroft.com/proto
- * 
+ *
  * Demo: jsfiddle.net/inuitcss/qCXfh/
- * 
+ *
  */
 .greybox,
 .graybox {
@@ -3876,9 +3876,9 @@ html.flexbox {
 
 /**
  * Align items to the right where they imply progression/movement forward, e.g.:
- * 
+ *
    <p class=proceed><a href=#>Read more...</a></p>
- * 
+ *
  */
 .proceed {
   text-align: right;
@@ -3886,9 +3886,9 @@ html.flexbox {
 
 /**
  * Add a right-angled quote to links that imply movement, e.g.:
- * 
+ *
    <a href=# class=go>Read more</a>
- * 
+ *
  */
 .go:after {
   content: " »";

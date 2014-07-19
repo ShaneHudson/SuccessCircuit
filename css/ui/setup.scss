@@ -5,16 +5,97 @@
 body  {
 	font-family: helvetica, sans-serif;
 	font-weight: 300;
+
+	overflow: hidden;
+
+	// Nasty hacks but nice (non-standard) progressive enhancement
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	@extend .kerning;
+}
+
+article a {
+	background: linear-gradient(90deg,
+	            #fff 100%, transparent 0) /* 60%: ratio between dash-gap */
+	            repeat-x;
+	background-size: .25em 2px; /* .25em: Width of dash+gap, 2px: thickness of underline */
+	background-position: 0 1.1em; /* vertical position of underline */
+	text-shadow: .01em 0 white, -.01em 0 white; /* create gap between descenders and underline */
+
+	color: #fff;
+	//text-decoration: underline;
+}
+
+article a:hover {
+	cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	background: none;
+}
+
+
+
+.full-width {
+	padding-left: 100%;
+	margin-left: -100%;
+
+	padding-right: 100%;
+	margin-right: -100%;
 }
 
 .container  {
 	margin: 0 auto;
 	max-width: 1024px;
+	padding: 0 10px;
+}
+
+article  {
+	padding: 0 25px;
+}
+
+.kerning  {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  font-kerning: normal;
+}
+
+.single article  {
+	background-color: rgba(54,54,54,0.2);
+}
+
+.single article p.wp-caption-text  {
+	font-family: helvetica, sans-serif;
+	font-style: italic;
+}
+
+.single article p  {
+	//-webkit-font-smoothing: auto;
+	font-family: Georgia, serif;
+	letter-spacing: 0.1px;
+	line-height: 1.7;
+}
+
+strong, b  {
+	-webkit-font-smoothing: antialiased;
+	color: #fff;
+	font-family: helvetica, sans-serif;
+	line-height: 1.5;
 }
 
 article p  {
+	color: #fff;
 	font-size: 14px;
-	line-height: 24px;
+	line-height: 1.5;
+}
+
+@media (min-width: 760px)  {
+	article p  {
+		font-size: 16px;
+		max-width: 650px;
+	}
 }
 
 .single h2  {
@@ -22,5 +103,27 @@ article p  {
 	font-size: $h3-size;
 	font-weight: 300;
 	line-height: 1;
-	padding: 12px;
+	padding: 12px 25px;
+	margin: 0;
+	padding-bottom: 20px;
+}
+
+.comment-reply-title  {
+		color: #fff;
+}
+
+.single article #respond p {
+	font-family: helvetica, sans-serif;
+}
+
+#comments  {
+	padding-bottom: 5px;
+}
+
+textarea, input  {
+	max-width: 100%;
+}
+
+#inifiniteLoader  {
+	display: none;
 }

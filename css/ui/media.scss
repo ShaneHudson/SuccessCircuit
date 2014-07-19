@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    $Media
+\*------------------------------------*/
+
+img, iframe, video, audio, embed  {
+  display: block;
+  margin: 0 auto;
+}
+
+iframe, embed  {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+
+.single img  {
+  //max-height: 500px;
+  max-width: 100%;
+  //max-width: 500px;
+  object-position: 0 0;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+@media (min-width: $lap-start)  {
+  margin: 15px;
+}
+
+.aligncenter  {
+  margin: 0 auto;
+}
+
+// Used for imgs
+.wp-caption[id^=attachment]  {
+  max-width: 100% !important;
+}
+
+.single .wp-caption  {
+  background: rgba(54,54,54,0.2);
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+
+.wp-caption-text  {
+  padding: 5px 15px;
+  padding-top: 0;
+  margin: 0;
+}
+
+.fluid-video  {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+  margin-bottom: 25px;
+}
+
+.fluid-video iframe  {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

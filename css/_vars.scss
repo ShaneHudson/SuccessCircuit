@@ -58,6 +58,14 @@ $h4-size:           20px!default; // .delta
 $h5-size:           16px!default; // .epsilon
 $h6-size:           14px!default; // .zeta
 
+$alpha : $h1-size;
+$beta  : $h2-size;
+$gamma : $h3-size;
+$delta : $h4-size;
+$epsilon : $h5-size;
+$zeta : $h6-size;
+
+
 $milli-size:        12px!default;
 $micro-size:        10px!default;
 
@@ -67,6 +75,10 @@ $micro-size:        10px!default;
  */
 $brand-color:       #4a8ec2!default;
 $brand-face:        "Helvetica Neue", sans-serif!default;
+
+$primary-color: #932051;
+$secondary-color: #2a649a;
+$tertiary-color: #363636;
 
 
 /**

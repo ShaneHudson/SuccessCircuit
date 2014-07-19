@@ -12,11 +12,13 @@
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-	<h2 data-colour="<?php echo get_colour(get_the_ID()); ?>" class="custom-bg"><?php the_title(); ?></h2>
-	<article>
-		<?php the_content(); ?>		
-		<?php comments_template( '', true ); ?>	
-	</article>
+	<section>
+		<h2 data-colour="<?php echo get_colour(get_the_ID()); ?>" class="custom-bg"><?php the_title(); ?></h2>
+		<article>
+			<?php the_content(); ?>
+			<?php comments_template( '', true ); ?>
+		</article>
+	</section>
 <?php endwhile; ?>
 
 <?php get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
