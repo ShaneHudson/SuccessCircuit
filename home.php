@@ -18,6 +18,7 @@
       endwhile;
     ?>
   </div>
+  <a href="/all" class="more">Show More</a>
 </section>
 
 <section class="featured">

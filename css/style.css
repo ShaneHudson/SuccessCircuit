@@ -3998,7 +3998,7 @@ footer .menu-item:before {
   border-top-style: solid;
 }
 .menu-item a {
-  display: inline-block;
+  display: inline;
 }
 
 /*------------------------------------*\

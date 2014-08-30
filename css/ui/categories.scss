@@ -6,7 +6,7 @@
 	background-color: $primary-color;
 }
 
-.recent, .featured {
+.recent, .featured, .primary, .secondary {
 	@extend .full-width;
 
 	padding-top: 15px;
@@ -15,15 +15,15 @@
 	border-bottom: 6px solid $tertiary-color;
 }
 
-.recent  {
+.recent, .primary  {
 	background-color: $primary-color;
 }
 
-.featured  {
+.featured, .secondary  {
 	background-color: $secondary-color;
 }
 
-.recent h1, .featured h1 {
+.recent h1, .primary h1, .secondary h1, .featured h1 {
 	color: #fff;
 	font-size: 28px;
 	font-weight: 400;
@@ -61,28 +61,9 @@
 \*------------------------------------*/
 
 .menu-item  {
-	header &:after  {
-		@include menu-borders(inherit, top);
-	}
-
-	footer &:after  {
-		@include menu-borders(inherit, bottom);
-	}
 
 	border-color: #fff;
-	// Top arrow
-	header &:before  {
-		border-bottom-color: inherit;
-		border-bottom-width: 5px;
-		border-bottom-style: solid;
-	}
-
-	// Bottom arrow
-	footer &:before  {
-		border-top-color: inherit;
-		border-top-width: 5px;
-		border-top-style: solid;
-	}
+	white-space: nowrap;
 
 	a  {
 		display: inline-block;

@@ -21,17 +21,12 @@
 		<?php
 			// Primary row
 			query_posts( array(
-				"posts_per_page" => 4
+				"posts_per_page" => 8
 			));
 			while ( have_posts() ) : the_post();
 				the_content_box($post->ID);
 			endwhile;
-			//wp_reset_query(); ?>
-
-			<ul class="widgets">
-				<?php dynamic_sidebar('home'); ?>
-			</ul>
-
+			wp_reset_query(); ?>
 	</div>
 </section>
 <?php else: ?>
