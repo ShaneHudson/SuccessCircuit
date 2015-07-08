@@ -65,7 +65,7 @@
 		<div class="grid one-whole  lap-one-half  desk-one-quarter content-grid">
 			<?php
 			$cat_colour = get_colour($post_id);?>
-			<a href="<?php esc_url( the_permalink() ); ?>" data-colour="<?php echo $cat_colour; ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark" class="content-grid__box custom-bg">
+			<a href="<?php esc_url( the_permalink() ); ?>" data-colour="<?php echo $cat_colour; ?>" title="<?php the_title(); ?>" rel="bookmark" class="content-grid__box custom-bg">
 				<?php if (has_post_thumbnail($post_id)) {
 					$image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "Full");
 					$image_url = $image_url[0];
@@ -91,14 +91,17 @@
 	function wp_infinitepaginate(){
 	    $loopFile        = $_POST['loop_file'];
 	    $paged           = $_POST['page_no'];
-	    $posts_per_page  = get_option('posts_per_page');
+	    $posts_per_page  = $_POST['amount'];
 	    $cat = $_POST['cat'];
-			print $cat;
+
+
+
 	    if (isset($cat))
-	    	query_posts(array('paged' => $paged, 'cat' => $cat ));
+	    	query_posts(array('paged' => $paged, 'cat' => $cat,  'post_status' => 'publish', 'ignore_sticky_posts' => 1 ));
 	    else
-	    	query_posts(array('paged' => $paged ));
+	    	query_posts(array('paged' => $paged,  'post_status' => 'publish', 'ignore_sticky_posts' => 1  ));
 	    get_template_part( $loopFile );
+			wp_reset_query();
 	    exit;
 	}
 
@@ -184,10 +187,9 @@ add_filter('the_content', 'filter_ptags_on_images');
 		<?php if ( $comment->comment_approved == '1' ): ?>
 		<li>
 			<article id="comment-<?php comment_ID() ?>">
-				<?php // echo get_avatar( $comment ); ?>
-				<h4><?php comment_author_link() ?></h4>
-				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
 				<?php comment_text() ?>
+				<p class="comment-author"><?php comment_author_link() ?> - <time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
+</p>
 			</article>
 		<?php endif; ?>
 		</li>

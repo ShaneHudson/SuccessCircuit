@@ -13,10 +13,12 @@
 
 <?php if ( have_posts() ): ?>
 <section class="recent">
+	<h1><?php echo single_cat_title( '', false ); ?></h1>
 	<div class="grid-wrapper">
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php the_content_box($post->ID); ?>
-		<?php endwhile; ?>
+		<?php while ( have_posts() ) :
+			the_post();
+			the_content_box($post->ID);
+	 	endwhile; ?>
 	</div>
 </section>
 <?php else: ?>

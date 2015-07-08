@@ -17,9 +17,13 @@
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-<h2 class="custom-bg title"><?php the_title(); ?></h2>
-<?php the_content(); ?>
-<?php comments_template( '', true ); ?>
+  <section class="primary">
+    <article>
+      <h2 class="custom-bg title"><?php the_title(); ?></h2>
+      <?php the_content(); ?>
+    </article>
+    <?php //comments_template( '', true ); ?>
+  </section>
 <?php endwhile; ?>
 
 <?php get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

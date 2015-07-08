@@ -27,13 +27,44 @@
   margin-bottom: 15px;
 
   .text  {
+    font-size: 14px; //0.875em
     width: 75%;
+    border: 1px solid $secondary-color;
+    height: 25px;
+    outline: none;
   }
 
   .submit  {
     width: 25%;
+    color: #fff;
+    font-size: 14px; // 0.875em;
+    font-weight: 300;
+    height: 25px;
+    max-height: 25px;
+    padding: 0;
+    //padding-bottom: 1px;
+    line-height: 14px;
+    -webkit-appearance: none;
+    border: 0 none;
+  	position: relative;
+  	background: $secondary-color;
   }
 }
+//
+// .submit:after  {
+// 	right: 100%;
+// 	top: 50%;
+// 	border: solid transparent;
+// 	content: " ";
+//   display: block;
+// 	height: 0;
+// 	width: 0;
+// 	position: absolute;
+// 	pointer-events: none;
+// 	border-right-color: $secondary-color;
+// 	border-width: 5px;
+// 	margin-top: -5px;
+// }
 
 @media (min-width: 530px) {
   .header_title  { float: left; }

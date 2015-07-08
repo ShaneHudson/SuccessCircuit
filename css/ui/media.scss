@@ -25,7 +25,22 @@ iframe, embed  {
   margin: 15px;
 }
 
+.alignleft, .alignright  {
+  display: inline;
+  margin: 0 15px;
+}
+.alignleft  {
+  float: left;
+  margin-left: 0;
+}
+
+.alignright  {
+  float: right;
+  margin-right: 0;
+}
+
 .aligncenter  {
+  display: block;
   margin: 0 auto;
 }
 
@@ -42,9 +57,11 @@ iframe, embed  {
 
 
 .wp-caption-text  {
+  font-size: 14px;
   padding: 5px 15px;
   padding-top: 0;
   margin: 0;
+  max-width: 100%;
 }
 
 .fluid-video  {

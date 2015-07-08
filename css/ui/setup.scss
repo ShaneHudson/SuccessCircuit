@@ -62,20 +62,23 @@ article  {
   font-kerning: normal;
 }
 
-.single article  {
+.single article,
+.page article  {
 	background-color: rgba(54,54,54,0.2);
 }
 
-.single article p.wp-caption-text  {
+.single article p.wp-caption-text,
+.page article p.wp-caption-text  {
 	font-family: helvetica, sans-serif;
 	font-style: italic;
 }
 
-.single article p  {
+.single article p {
 	//-webkit-font-smoothing: auto;
 	font-family: Georgia, serif;
 	letter-spacing: 0.1px;
 	line-height: 1.7;
+	overflow: hidden;
 }
 
 strong, b  {
@@ -98,12 +101,14 @@ article p  {
 	}
 }
 
-.single h2  {
+.single h2,
+.single h1,
+.page h2  {
 	color: #fff;
 	font-size: $h3-size;
 	font-weight: 300;
 	line-height: 1;
-	padding: 12px 25px;
+	padding: 25px 0;
 	margin: 0;
 	padding-bottom: 20px;
 }
@@ -117,13 +122,40 @@ article p  {
 }
 
 #comments  {
+	clear: both;
+	padding-top: 10px;
 	padding-bottom: 5px;
+}
+
+#comments li  {
+	list-style: none;
+}
+
+#comments h4  {
+	color: #fff;
+}
+
+#comments li article  {
+	padding-top: 5px;
+}
+
+.comment-author  {
+	text-align: right;
+	padding-bottom: 15px;
+	max-width: inherit;
+	margin: 0;
 }
 
 textarea, input  {
 	max-width: 100%;
 }
 
-#inifiniteLoader  {
+.more  {
+	color: #fff;
+	display: block;
+	text-align: right;
+}
+
+.archive footer  {
 	display: none;
 }
