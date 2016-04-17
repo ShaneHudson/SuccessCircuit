@@ -37,13 +37,18 @@
 	}
 
 
-	.content-grid__img  {
+	.content-grid__img,
+	.content-grid__img-wrapper  {
 		position: absolute;
 		top: 0;
 		left: 0;
 	}
 }
 
+.content-grid__img-wrapper  {
+	height: 250px;
+	width: 100%;
+}
 
 .content-grid__img  {
 	border-radius: 14px;

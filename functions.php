@@ -21,12 +21,138 @@
 	require_once( 'functions/menus.php' );
 
 	/* ========================================================================================================================
-
 	Theme specific settings
 
 	Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
 
 	======================================================================================================================== */
+
+function bidirectional_acf_update_value( $value, $post_id, $field  ) {
+	
+	// vars
+	$field_name = $field['name'];
+	$global_name = 'is_updating_' . $field_name;
+	
+	
+	// bail early if this filter was triggered from the update_field() function called within the loop below
+	// - this prevents an inifinte loop
+	if( !empty($GLOBALS[ $global_name ]) ) return $value;
+	
+	
+	// set global variable to avoid inifite loop
+	// - could also remove_filter() then add_filter() again, but this is simpler
+	$GLOBALS[ $global_name ] = 1;
+	
+	
+	// loop over selected posts and add this $post_id
+	if( is_array($value) ) {
+	
+		foreach( $value as $post_id2 ) {
+			
+			// load existing related posts
+			$value2 = get_field($field_name, $post_id2, false);
+			
+			
+			// allow for selected posts to not contain a value
+			if( empty($value2) ) {
+				
+				$value2 = array();
+				
+			}
+			
+			
+			// bail early if the current $post_id is already found in selected post's $value2
+			if( in_array($post_id, $value2) ) continue;
+			
+			
+			// append the current $post_id to the selected post's 'related_posts' value
+			$value2[] = $post_id;
+			
+			
+			// update the selected post's value
+			update_field($field_name, $value2, $post_id2);
+			
+		}
+	
+	}
+	
+	
+	// find posts which have been removed
+	$old_value = get_field($field_name, $post_id, false);
+	
+	if( is_array($old_value) ) {
+		
+		foreach( $old_value as $post_id2 ) {
+			
+			// bail early if this value has not been removed
+			if( is_array($value) && in_array($post_id2, $value) ) continue;
+			
+			
+			// load existing related posts
+			$value2 = get_field($field_name, $post_id2, false);
+			
+			
+			// bail early if no value
+			if( empty($value2) ) continue;
+			
+			
+			// find the position of $post_id within $value2 so we can remove it
+			$pos = array_search($post_id, $value2);
+			
+			
+			// remove
+			unset( $value2[ $pos] );
+			
+			
+			// update the un-selected post's value
+			update_field($field_name, $value2, $post_id2);
+			
+		}
+		
+	}
+	
+	
+	// reset global varibale to allow this filter to function as per normal
+	$GLOBALS[ $global_name ] = 0;
+	
+	
+	// return
+    return $value;
+    
+}
+
+add_filter('acf/update_value/name=related_people', 'bidirectional_acf_update_value', 10, 3);
+
+// Register Custom Post Type
+function person_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'People', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Person', 'Post Type Singular Name', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Person', 'text_domain' ),
+		'description'           => __( 'Person entity', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,		
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+                'menu_icon'             => 'dashicons-groups',
+	);
+	register_post_type( 'person', $args );
+
+}
+add_action( 'init', 'person_post_type', 0 );
 
 	add_theme_support('post-thumbnails');
 
@@ -63,14 +189,12 @@
 
 	function the_content_box($post_id)  { ?>
 		<div class="grid one-whole  lap-one-half  desk-one-quarter content-grid">
-			<?php
-			$cat_colour = get_colour($post_id);?>
-			<a href="<?php esc_url( the_permalink() ); ?>" data-colour="<?php echo $cat_colour; ?>" title="<?php the_title(); ?>" rel="bookmark" class="content-grid__box custom-bg">
+			<a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title(); ?>" rel="bookmark" class="content-grid__box">
 				<?php if (has_post_thumbnail($post_id)) {
 					$image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), "Full");
 					$image_url = $image_url[0];
 					if ($image_url != '')  { ?>
-						<img src="<?php echo $image_url; ?>" class="content-grid__img" />
+						<div class="content-grid__img-wrapper"><img src="<?php echo $image_url; ?>" class="content-grid__img" /></div>
 					<?php }
 					} ?>
 				<article class="content-grid__content">
@@ -161,6 +285,9 @@ add_filter('the_content', 'filter_ptags_on_images');
 	function script_enqueuer() {
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
+
+		wp_register_script( 'social', get_template_directory_uri().'/js/social.min.js', array( 'jquery' ) );
+		wp_enqueue_script( 'social' );
 
 		wp_register_style( 'screen', get_template_directory_uri().'/style.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );

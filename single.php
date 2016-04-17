@@ -16,6 +16,7 @@
 		<article>
 			<h1><?php the_title(); ?></h1>
 			<?php the_content(); ?>
+			<?php get_template_parts( array('parts/shared/social') ); ?>
 			<?php comments_template( '', true ); ?>
 		</article>
 	</section>

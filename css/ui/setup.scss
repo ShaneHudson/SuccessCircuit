@@ -73,12 +73,14 @@ article  {
 	font-style: italic;
 }
 
-.single article p {
+.single article p,
+.single article li {
+	color: #fff;
 	//-webkit-font-smoothing: auto;
 	font-family: Georgia, serif;
 	letter-spacing: 0.1px;
 	line-height: 1.7;
-	overflow: hidden;
+	//overflow: hidden;
 }
 
 strong, b  {
@@ -129,6 +131,10 @@ article p  {
 
 #comments li  {
 	list-style: none;
+}
+
+#comments h2  {
+	padding-left: 15px;
 }
 
 #comments h4  {

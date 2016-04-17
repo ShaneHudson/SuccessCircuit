@@ -34,7 +34,7 @@
 		<script type="text/javascript">
 		    jQuery(document).ready(function($) {
 		        var page = 2; // Start with the second page
-						var hasScrolled = false;
+				var hasScrolled = false;
 		        var totalPages = <?php echo $wp_query->max_num_pages; ?>;
 		        $(window).scroll(function(){
 	            if  ($(window).scrollTop() == $(document).height() - $(window).height() && !hasScrolled){
@@ -56,7 +56,11 @@
                   data: "action=infinite_scroll&post_status=publish&page_no=" + pageNumber + "&amount=8&loop_file=loop<?php if(isset($cat)) { echo "&cat=" . $cat; } ?>",
                   success: function(html){
                     $(".grid-wrapper").append(html);    // This will be the div where our content will be loaded
-										hasScrolled = false;
+					hasScrolled = false;
+					Modernizr.load({
+						test: Modernizr['object-fit'],
+						nope: "<?php echo get_bloginfo('template_directory'); ?>/js/object-fit.js"
+					});
                   }
               });
 	            return false;

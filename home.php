@@ -12,13 +12,13 @@
   <h1>Recent Interviews</h1>
   <div class="grid-wrapper">
     <?php
-      query_posts( array("posts_per_page" => 4, 'ignore_sticky_posts' => 1));
+      query_posts( array("posts_per_page" => 4, "category_name" => "interviews", 'ignore_sticky_posts' => 1));
       while ( have_posts() ) : the_post();
         the_content_box($post->ID);
       endwhile;
     ?>
   </div>
-  <a href="/all" class="more">Show More</a>
+  <a href="/interviews" class="more">All Interviews</a>
 </section>
 
 <section class="featured">
