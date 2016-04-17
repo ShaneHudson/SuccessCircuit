@@ -23,6 +23,15 @@
                     </ul>
                 <?php endif; ?>
 
+            <?php
+                $people = get_field('related_people');
+
+                if ($people): ?>
+                    <?php foreach( $people as $person ): ?>
+	    	            <a href="<?php echo get_permalink( $person->ID ); ?>"><?php echo get_the_title( $person->ID ); ?></a>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
 		</article>
 	</section>
 <?php endwhile; ?>
