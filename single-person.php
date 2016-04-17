@@ -10,6 +10,19 @@
 		        }
 		    ?>
 			<h1><?php echo $name; ?></h1>
+			<?php
+                $images = get_field('photos');
+
+                if( $images ): ?>
+                    <ul>
+                        <?php foreach( $images as $image ): ?>
+                            <li>
+                                <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+
 		</article>
 	</section>
 <?php endwhile; ?>
