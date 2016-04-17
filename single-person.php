@@ -32,19 +32,23 @@
                 $people = get_field('related_people');
 
                 if ($people): ?>
-                    <?php foreach( $people as $person ): ?>
-	    	            <a href="<?php echo get_permalink( $person->ID ); ?>"><?php echo get_the_title( $person->ID ); ?></a>
-                    <?php endforeach; ?>
+                    <ul>
+                        <?php foreach( $people as $person ): ?>
+                            <li><a href="<?php echo get_permalink( $person->ID ); ?>"><?php echo get_the_title( $person->ID ); ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
                 <?php endif; ?>
             </section>
             <section class="profile__interviews">
                 <?php
                     $interviews = get_field('interviews');
 
-                    if ($interviews):
-                        foreach( $interviews as $interview ): ?>
-                            <a href="<?php echo get_permalink( $interview->ID ); ?>"><?php echo get_the_title( $interview->ID ); ?></a>
-                        <?php endforeach; ?>
+                    if ($interviews): ?>
+                        <ul>
+                            <?php foreach( $interviews as $interview ): ?>
+                                <li><a href="<?php echo get_permalink( $interview->ID ); ?>"><?php echo get_the_title( $interview->ID ); ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
                     <?php endif; ?>
             </section>
 
