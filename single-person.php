@@ -33,7 +33,7 @@
                 <?php endif; ?>
 
             <?php
-                $interviews = get_field('related_interview');
+                $interviews = get_field('related_interviews');
 
                 if ($interviews):
                     foreach( $interviews as $interview ): ?>
