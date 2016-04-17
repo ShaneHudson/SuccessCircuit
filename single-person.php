@@ -14,6 +14,7 @@
                 <h1><?php echo $name; ?></h1>
 			</section>
             <section class="profile__photos">
+            <h2>Photos</h2>
 			<?php
                 $images = get_field('photos');
 
@@ -28,6 +29,7 @@
                 <?php endif; ?>
             </section>
             <section class="profile__people">
+            <h2>Related people</h2>
             <?php
                 $people = get_field('related_people');
 
@@ -40,6 +42,7 @@
                 <?php endif; ?>
             </section>
             <section class="profile__interviews">
+            <h2>Related Interviews</h2>
                 <?php
                     $interviews = get_field('interviews');
 
