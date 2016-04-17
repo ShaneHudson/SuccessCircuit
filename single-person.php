@@ -36,7 +36,7 @@
                 $interviews = get_field('related_interview');
 
                 if ($people): ?>
-                    <?php foreach( $interview as $interviews ): ?>
+                    <?php foreach( $interviews as $interview ): ?>
                         <a href="<?php echo get_permalink( $interview->ID ); ?>"><?php echo get_the_title( $interview->ID ); ?></a>
                     <?php endforeach; ?>
                 <?php endif; ?>
