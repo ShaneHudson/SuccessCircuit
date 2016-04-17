@@ -21,7 +21,8 @@
 		<?php
 			// Primary row
 			query_posts( array(
-				"posts_per_page" => 8
+				"posts_per_page" => 8,
+				"post_type" => 'post'
 			));
 			while ( have_posts() ) : the_post();
 				the_content_box($post->ID);

@@ -221,9 +221,9 @@ add_action( 'init', 'person_post_type', 0 );
 
 
 	    if (isset($cat))
-	    	query_posts(array('paged' => $paged, 'cat' => $cat,  'post_status' => 'publish', 'ignore_sticky_posts' => 1 ));
+	    	query_posts(array('paged' => $paged, 'cat' => $cat, 'post_type' => 'post', 'post_status' => 'publish', 'ignore_sticky_posts' => 1 ));
 	    else
-	    	query_posts(array('paged' => $paged,  'post_status' => 'publish', 'ignore_sticky_posts' => 1  ));
+	    	query_posts(array('paged' => $paged, 'post_type' => 'post',  'post_status' => 'publish', 'ignore_sticky_posts' => 1  ));
 	    get_template_part( $loopFile );
 			wp_reset_query();
 	    exit;
