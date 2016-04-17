@@ -8,7 +8,7 @@
 		        if ($preferred = get_the_field('preferred_name'))  {
                     $name = $preferred;
 		        }
-			<h1><?php echo $name ?></h1>
+			<h1><?php echo $name; ?></h1>
 		</article>
 	</section>
 <?php endwhile; ?>
